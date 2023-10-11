@@ -1,118 +1,174 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include('all.php'); ?>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	<script>
+		function fun()
+		{
+			alert("Your Have been Logged-in Successfully !");
+		}
+		
+	</script>
+</head>
+<body>
+<?php include "header.php"; ?>
+<div  class="west">
+		<form method="post">
+		<h1 class="mint">User Login</h1>
 
+
+<input class="inn" type="email" name="email" placeholder="Email" required ><br><br>
+<input class="inn" type="password" name="password" minlength="6" maxlength="12" placeholder="Password" required ><br><br>
+<button id="min" type="submit" name="btn" class="btn-primary btn btn-sm"  > Login  </button><br><br>
+
+<label style="color:white;font-size: 17px; color: black;">New to To-Let?</label>
+
+<a style="margin-left:25px; font-size:15px; font-family: sans-serif; color: darkblue;" href="Signup.php"  >Signup</a>
+</form>
+</div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+	
 	<title></title>
 </head>
 <body>
-	
-	<div class="main">
-
-		<h1 class="title">Admin Login </h1>
-	<form method="post">
-		<i class="fa fa-envelope" style="margin-left:40px; font-size:20px; color:grey; "></i> <input class="input" type="email" name="email_id" placeholder="Email" required ><br>
-	
-		<i class="fa fa-key" style="margin-left:40px; font-size:20px; color:grey;"></i><input class="input" type="password" name="password" placeholder="Password" minlength="8" maxlength="10" required ><br><br>
-		 
-		<input  id="subm"  type="submit" value="Let me in" name="btn" class="btn-info btn btn-lg">
-	 
-	 
-	</form>
-</div>
-
 
 </body>
 </html>
 <style type="text/css">
+	body{
+		margin=0;
+	background-image: url(./images/h2.jpg);
+	background-size:cover;
+	background-repeat: no-repeat;
 
-        body{
-        	margin:0px;
-        	background-image: url(../images/l7.jpg);
-        	background-size: 100%;
-        	background-repeat: no-repeat;
-
-        }
-   ::placeholder{
-		color: rgba(255,255,255,0.9);
-		font-size: 15px;
-	}
-
-
-        .title{
-	padding:10px; 
-	margin-top:50px;
-	font-family: 'Lobster', cursive;
-	text-align: center;
-	font-weight:900;
-	font-size: 40px;
-	color: #f8f8ff;
 }
-      
-	.main{
-		/*padding:20px;*/
-		margin-left: 500px;
-		height:400px;
-		width:380px;
-		/*background-color: rosybrown;*/
-		margin-top:140px;
-		/*border: 1px solid black;*/
-		/*border-radius:15px; */
-		/*opacity:.9;*/
-
+	.west{
+		height: 320px;
+		width: 350px;
+		margin-left: 450px;
+		margin-top:50px;
+		margin-bottom: 50px;
 		box-shadow: 0px 8px 16px rgba(0,0,0,0.9);
-		padding: 10px 20px;
+		padding: 15px 50px;
 		background: linear-gradient(top,#3c3c3c, 0%,#222222,100%);
 		background-color: -webkit-linear-gradient(top,#3c3c3c, 0%,#222222,100%);
 
-		 
-}
-	.input{
-   height:35px;
-   width:200px;
-   text-indent: 10px;
-   margin-top:15px; 
-   border: none;
-   outline: none;
-   /*background-color: rosybrown;*/
-   border-bottom: 2px solid black;
-   background: transparent;
-        box-sizing: border-box;
+	}
 
-   }
-   #subm{
-   	margin-left: 80px; 
-   	height:45px;
-   	width:150px; 
-   	margin-top:15px; 
-   	font-family: 'Lobster', cursive;
-   	font-weight:700;
-   	font-size: 20px; 
-   	color:#f8f8ff;
-   }
-</style> 
-<?php 
+	.inn{
+		color: white;
+		height:35px;
+		width: 250px;
+		border:none;
+		outline: none;
+        border-bottom: 1px solid black;
+        font-size:15px;
+		background: transparent;
+        box-sizing: border-box;
+        
+
+	}
+	#min{
+
+		margin-left: 5px;
+		height:40px;
+		width:250px;
+		font-family: 'Rubik', sans-serif;
+		font-size: 20px;
+		font-weight: 600;
+		background-color:blue;
+		border: none;
+		outline: none;
+		color: white;
+		
+	}
+	.mint{
+		text-align: center;
+		font-weight: 700;
+		font-size: 40px;
+		color:black;
+		font-family: cursive;
+
+	}
+	::placeholder{
+		color: rgba(255,255,255,0.8);
+		font-size: 15px;
+	}
+	
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<?php include "footer.php"; ?>
+</body>
+</html>
+<script type="text/javascript">
+	x=0;
+	function showit()
+	{
+	  if(x==0)
+	  {
+	  	document.getElementById('btnsignin').style.visibility='hidden';
+	  	x=1;
+
+	  }
+	  else{
+	  	document.getElementById('btnsignin').style.visibility='visible';
+	  	x=0;
+	  }	
+	}
+</script>
+
+<?php  
 if (isset($_POST['btn']))
 {
- 
- include('db.php');
+	$con=mysqli_connect("localhost","root","","ucritic");
+ // include('db.php');
+$records=mysqli_query($con,"select * from signup where  email ='".$_POST['email']."' and password = '".$_POST['password']."' and status='Approved'");
+		$r=mysqli_num_rows($records);
+		$data=mysqli_fetch_array($records);
 
-$record=mysqli_query($con,"select * from admin where email_id ='".$_POST['email_id']."' and password = '".$_POST['password']."' ");
-$r=mysqli_num_rows($record);
-// echo $r;
+		
 
 
 
 
-	if($r==1)
+
+
+		if($r==1)
 	{
-		session_start();
-		$_SESSION['userloggedin']=$_POST['email_id'];
-		header("location:dashboard.php");
+		
+	
+		//wellcome msg
+		
+		
+		// session_start();
+		$_SESSION['customerloggedin']=$_POST['email'];
+	     $_SESSION['name']=$data['username'];
+		
+
+		// $_SESSION['id']=$_POST['pid'];
+		header("location:index.php");
+	
+		  
 
 	}
-	else {
-		echo ("invalid user");
+	else{
+        
+		
+		 echo '<script> alert("Invalid Email or Password !")</script>';
+		  
 	}
+
 }
 ?>
